@@ -1,12 +1,10 @@
 package com.example.demo.data;
 
 import lombok.Data;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
 /**
  * @author churinaav
@@ -15,13 +13,13 @@ import java.io.Serializable;
 @Data
 @Entity
 @RequiredArgsConstructor
-public class Chapter implements Serializable {
+public class Chapter {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
-    @Column
-    @NotNull
-    private String name;
+@Column
+@NotNull
+    private String name = "test";
 }
