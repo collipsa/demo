@@ -1,6 +1,6 @@
 package com.example.demo.web.controllers;
 
-import com.example.demo.data.User;
+import com.example.demo.data.Chapter;
 import com.example.demo.data.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +21,7 @@ public class UserController {
     private final UserRepository userRepository;
 
     @GetMapping
-    public List<User> list(){
+    public List<Chapter> list(){
         return userRepository.findAll();
     }
 }
