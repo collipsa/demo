@@ -3,11 +3,9 @@ package com.example.demo.web.controllers;
 import com.example.demo.data.Chapter;
 import com.example.demo.data.ChapterRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -27,5 +25,5 @@ public class UserController {
     }
 
     @PostMapping
-    public Chapter add (Chapter chapter){return chapterRepository.save(chapter);}
+    public Chapter add (@Valid @RequestBody Chapter chapter){return chapterRepository.save(chapter);}
 }
