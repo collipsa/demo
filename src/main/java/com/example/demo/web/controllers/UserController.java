@@ -1,9 +1,10 @@
 package com.example.demo.web.controllers;
 
 import com.example.demo.data.Chapter;
-import com.example.demo.data.UserRepository;
+import com.example.demo.data.ChapterRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,13 +16,16 @@ import java.util.List;
  **/
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "/users")
+@RequestMapping(path = "/chapters")
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final ChapterRepository chapterRepository;
 
     @GetMapping
     public List<Chapter> list(){
-        return userRepository.findAll();
+        return chapterRepository.findAll();
     }
+
+    @PostMapping
+    public Chapter add (Chapter chapter){return chapterRepository.save(chapter);}
 }
